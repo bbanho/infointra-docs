@@ -1,25 +1,31 @@
 # infointra-docs
 
-Wiki VitePress do **Ampla Vendas ERP** (PWA Offline-First de Força de Vendas).
+Documentação técnica multi-projeto (GitHub Pages).
 
-> ⚠️ **Repo de artefatos estáticos apenas.** Este repositório contém **somente o build compilado** (HTML/CSS/JS) do VitePress — a fonte da documentação (`.md`, config) vive no repo privado `amplainformatica-erp-integrado` e é compilada localmente antes do push.
+> ⚠️ **Repo de artefatos estáticos apenas.** Este repositório contém **somente builds compilados** (HTML/CSS/JS) — as fontes das documentações (`.md`, config) vivem nos repos privados de cada projeto e são compiladas localmente antes do push.
 
-## Publicar (a partir do repo privado)
+## Projetos publicados
+
+| Projeto | URL | Fonte (privada) |
+|---|---|---|
+| Ampla Vendas ERP | https://docs.axio.eng.br/ampla/ | `amplainformatica-erp-integrado` (wiki/) |
+
+## Publicar (a partir do repo privado do projeto)
 
 ```bash
-# 1. Build com base /docs/ (links internos apontam para /docs/...)
+# 1. Build com base /<projeto>/ (links internos apontam para /<projeto>/...)
 cd ../amplainformatica-erp-integrado/wiki
-npm run build -- --base /docs/
+npm run build -- --base /ampla/
 
 # 2. Copiar o build para cá
-cp -r .vitepress/dist/* ../../infointra-docs/docs/
+cp -r .vitepress/dist/* ../../infointra-docs/ampla/
 
 # 3. Commit + push (GitHub Pages atualiza sozinho ~1 min)
 cd ../../infointra-docs
-git add -A && git commit -m "docs: atualiza wiki (build)" && git push
+git add -A && git commit -m "docs: atualiza wiki ampla (build)" && git push
 ```
 
 ## URL
 
-- Produção: https://infointra.axio.eng.br/docs/
-- Fallback (Pages): https://bbanho.github.io/infointra-docs/docs/
+- Produção: https://docs.axio.eng.br/ampla/ (custom domain — requer TXT verificado)
+- Fallback (Pages): https://bbanho.github.io/infointra-docs/ampla/
