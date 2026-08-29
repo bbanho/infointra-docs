@@ -2,30 +2,28 @@
 
 Documentação técnica multi-projeto (GitHub Pages).
 
-> ⚠️ **Repo de artefatos estáticos apenas.** Este repositório contém **somente builds compilados** (HTML/CSS/JS) — as fontes das documentações (`.md`, config) vivem nos repos privados de cada projeto e são compiladas localmente antes do push.
-
-## Projetos publicados
-
-| Projeto | URL | Fonte (privada) |
-|---|---|---|
-| Ampla Vendas ERP | https://docs.axio.eng.br/ampla/ | `amplainformatica-erp-integrado` (wiki/) |
+> ⚠️ **Repositório de artefatos estáticos apenas — MIGRADO.** O conteúdo de documentação de todos os projetos foi consolidado no repositório central **`bbanho/axio-docs`**, publicado em **https://docs.axio.eng.br**.
+>
+> Este repositório está **sendo desativado** como site Pages. O custom domain `docs.axio.eng.br` pertence agora ao repo `axio-docs`. As fontes (`.md`) continuam vivendo nos repos privados de cada projeto, compiladas localmente antes do push para `axio-docs`.
 
 ## Publicar (a partir do repo privado do projeto)
+
+Após a migração, o build de cada projeto deve ser copiado para o repositório central `axio-docs` (e não mais para cá):
 
 ```bash
 # 1. Build com base /<projeto>/ (links internos apontam para /<projeto>/...)
 cd ../amplainformatica-erp-integrado/wiki
 npm run build -- --base /ampla/
 
-# 2. Copiar o build para cá
-cp -r .vitepress/dist/* ../../infointra-docs/ampla/
+# 2. Copiar o build para o repo central
+cp -r .vitepress/dist/* ../../axio-docs/ampla/
 
-# 3. Commit + push (GitHub Pages atualiza sozinho ~1 min)
-cd ../../infointra-docs
+# 3. Commit + push no repo central (GitHub Pages atualiza em ~1 min)
+cd ../../axio-docs
 git add -A && git commit -m "docs: atualiza wiki ampla (build)" && git push
 ```
 
 ## URL
 
-- Produção: https://docs.axio.eng.br/ampla/ (custom domain — requer TXT verificado)
-- Fallback (Pages): https://bbanho.github.io/infointra-docs/ampla/
+- Produção (central): https://docs.axio.eng.br/ampla/
+- Fallback (Pages): https://bbanho.github.io/axio-docs/ampla/
